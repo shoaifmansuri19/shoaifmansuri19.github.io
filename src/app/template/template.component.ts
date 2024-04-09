@@ -14,7 +14,6 @@ import { AppConstants } from '../constants';
 })
 export class TemplateComponent implements OnInit {
   user_email;
-  res;
   ref: DynamicDialogRef;
   showErrorMessage: boolean = false;
   errorMessage;
@@ -29,25 +28,25 @@ export class TemplateComponent implements OnInit {
 
   ngOnInit(): void {
     // let email = this.route.snapshot.paramMap.get('email');
-    let email = AppConstants.userEmail;
-    this.user_email = email;
+    // let email = AppConstants.userEmail;
+    // this.user_email = email;
 
-    this.ngxService.start();
-    this.spinner.show();
-    this.userDataService
-      .getUserDetails(this.user_email)
-      .subscribe((response) => {
-        if (response.data) {
-          this.res = response;
-        } else {
-          this.showDeleteMessage = true;
-          this.showErrorMessage = true;
-          this.errorMessage = 'Can not fetch user details';
-        }
-        this.ngxService.stop();
-        this.spinner.hide();
-        console.log(this.res);
-      });
+    // this.ngxService.start();
+    // this.spinner.show();
+    // this.userDataService
+    //   .getUserDetails(this.user_email)
+    //   .subscribe((response) => {
+    //     console.log({ response });
+
+    //     if (!response.data) {
+    //       this.showDeleteMessage = true;
+    //       this.showErrorMessage = true;
+    //       this.errorMessage = 'Can not fetch user details';
+    //     }
+    //     this.ngxService.stop();
+    //     this.spinner.hide();
+    //     console.log(this.res);
+    //   });
   }
 
   deletePortfolio() {

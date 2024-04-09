@@ -1,13 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';
+import { AppConstants } from '../constants';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserDataService {
   userEmail: any;
-  userResponse;
+  userResponse = AppConstants.userData;
   portfolioList = [];
   constructor(public http: HttpClient) {}
 

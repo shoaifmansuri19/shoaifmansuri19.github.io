@@ -11,34 +11,42 @@
   Your profile is not available
 </div>
 
-<div *ngIf="res && !showDeleteMessage">
+<div *ngIf="!showDeleteMessage">
   <header class="header">
-    <div class="container d-flex flex-wrap">
-      <div>
-        <img
-          src="assets/images/profile_pic.png"
-          alt="profile"
-          class="profile-image"
-        />
-      </div>
-      <div class="p-4" style="padding-bottom: 0px !important">
-        <h1 style="color: #49515a; font-size: 38px; font-weight: bolder">
-          {{ res.data.firstname }}{{ " " + res.data.lastname }}
-        </h1>
-        <h2
-          style="
-            color: #778492;
-            font-weight: 400;
-            font-size: 24px;
-            margin-bottom: 15px;
-          "
+    <div class="container">
+      <div class="row justify-content-center justify-content-md-start">
+        <div
+          class="col-12 col-md-3 col-lg-2 text-center text-md-right pb-3 pb-md-0"
         >
-          {{ res.data.designation }}
-        </h2>
-        <app-edit-social-media
-          *ngIf="userDataService.userResponse"
-          [res]="userDataService.userResponse"
-        ></app-edit-social-media>
+          <img
+            src="assets/images/profile_pic.png"
+            alt="profile"
+            class="profile-image"
+          />
+        </div>
+        <div
+          class="col-12 col-md-9 col-lg-10 text-center text-md-left"
+          style="padding-bottom: 0px !important"
+        >
+          <h1 style="color: #49515a; font-size: 38px; font-weight: bolder">
+            {{ userDataService.userResponse.data.firstname }}
+            {{ " " + userDataService.userResponse.data.lastname }}
+          </h1>
+          <h2
+            style="
+              color: #778492;
+              font-weight: 400;
+              font-size: 24px;
+              margin-bottom: 15px;
+            "
+          >
+            {{ userDataService.userResponse.data.designation }}
+          </h2>
+          <app-edit-social-media
+            *ngIf="userDataService.userResponse"
+            [res]="userDataService.userResponse"
+          ></app-edit-social-media>
+        </div>
       </div>
     </div>
     <!-- <div class="delete-button">
