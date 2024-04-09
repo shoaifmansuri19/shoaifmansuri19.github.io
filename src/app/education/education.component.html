@@ -1,0 +1,96 @@
+<form [formGroup]="childForm">
+  <div class="card mt-2">
+    <div class="card-body" formArrayName="Education">
+      <div *ngFor="let education of getEducation(); index as i">
+        <div class="row" [formGroupName]="i">
+          <div class="col">
+            <label>Degree</label>
+            <input
+              class="form-control"
+              placeholder="Enter degree"
+              formControlName="degree"
+            />
+            <small
+              *ngIf="
+                education.get('degree').errors?.required &&
+                (education.get('degree').touched || submitted)
+              "
+            >
+              Please enter degree
+            </small>
+          </div>
+          <div class="col">
+            <label>College</label>
+            <input
+              class="form-control"
+              placeholder="Enter college"
+              formControlName="college"
+            />
+            <small
+              *ngIf="
+                education.get('college').errors?.required &&
+                (education.get('college').touched || submitted)
+              "
+            >
+              Please enter college
+            </small>
+          </div>
+          <div class="col">
+            <label>Start Date</label>
+            <p-calendar
+              [showIcon]="true"
+              dateFormat="dd-mm-yy"
+              formControlName="startDate"
+            ></p-calendar>
+            <small
+              *ngIf="
+                education.get('startDate').errors?.required &&
+                (education.get('startDate').touched || submitted)
+              "
+            >
+              Please enter start date
+            </small>
+          </div>
+          <div class="col">
+            <label>End Date</label>
+            <p-calendar
+              [showIcon]="true"
+              dateFormat="dd-mm-yy"
+              formControlName="endDate"
+            ></p-calendar>
+            <small
+              *ngIf="
+                education.get('endDate').errors?.required &&
+                (education.get('endDate').touched || submitted)
+              "
+            >
+              Please enter end date
+            </small>
+          </div>
+          <div class="remove-btn">
+            <button class="remove-element" (click)="removeEducation(i)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </div>
+        </div>
+      </div>
+      <button
+        pButton
+        type="button"
+        icon="pi pi-plus"
+        class="p-button-rounded p-button-outlined"
+        (click)="addEducation()"
+      ></button>
+    </div>
+  </div>
+  <button
+    *ngIf="config.data"
+    mat-raised-button
+    type="button"
+    color="primary"
+    class="submitButton p-button-outlined mt-1"
+    (click)="onUpdate()"
+  >
+    Submit
+  </button>
+</form>

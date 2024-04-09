@@ -1,0 +1,62 @@
+<form [formGroup]="childForm">
+  <div class="card mt-2">
+    <div class="card-body" formArrayName="Socials">
+      <div *ngFor="let info of getMediaInfo(); index as i">
+        <div class="row" [formGroupName]="i">
+          <div class="col">
+            <label>Profile link</label>
+            <input
+              class="form-control col"
+              placeholder="Enter profile"
+              formControlName="redirectionLink"
+            />
+            <small
+              *ngIf="
+                info.get('redirectionLink').errors?.required &&
+                (info.get('redirectionLink').touched || submitted)
+              "
+            >
+              Please enter profile</small
+            >
+            <small *ngIf="info.get('redirectionLink').errors?.pattern">
+              Please enter valid URL
+            </small>
+          </div>
+          <div class="col">
+            <label>Page</label><br />
+            <p-dropdown
+              [options]="profilePage"
+              placeholder="Select page"
+              optionLabel="page"
+              optionValue="page"
+              [showClear]="true"
+              formControlName="name"
+            ></p-dropdown>
+          </div>
+          <div class="remove-btn">
+            <button class="remove-element" (click)="removeSocials(i)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </div>
+        </div>
+      </div>
+      <button
+        pButton
+        type="button"
+        icon="pi pi-plus"
+        class="p-button-rounded p-button-outlined"
+        (click)="addMediaInfo()"
+      ></button>
+    </div>
+  </div>
+  <button
+    *ngIf="config.data"
+    mat-raised-button
+    type="button"
+    color="primary"
+    class="submitButton p-button-outlined mt-1"
+    (click)="onUpdate()"
+  >
+    Submit
+  </button>
+</form>

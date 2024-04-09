@@ -1,0 +1,20 @@
+<div class="d-flex" *ngIf="res.data">
+  <ul class="social-link list-inline mb-0">
+    <li class="list-inline-item" *ngFor="let info of res.data.Socials">
+      <a
+        [href]="info.redirectionLink"
+        target="_blank"
+        style="text-decoration: none"
+      >
+        <i [ngClass]="info.iconClass" class="iconStyle"> </i>
+      </a>
+    </li>
+  </ul>
+  <!-- <ul>
+    <li class="list-inline-item" (click)="showDialog()">
+      <a target="_blank" style="text-decoration: none">
+        <i class="iconStyle fa fa-edit" style="margin-left: -35px"></i>
+      </a>
+    </li>
+  </ul> -->
+</div>

@@ -1,0 +1,16 @@
+.button{
+  cursor: pointer;
+  border-radius: 50%;
+  border: none;
+  background: white;
+  color: black;
+  margin-left: 15px;
+}
+.list-group{
+  flex-direction: row;
+  margin-bottom: 5px;
+}
+.email{
+  color: #3aaa64;
+  cursor: pointer;
+}

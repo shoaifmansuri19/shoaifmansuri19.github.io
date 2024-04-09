@@ -1,0 +1,36 @@
+<mat-toolbar color="primary">
+  <span>Welcome to Portfolio Builder</span>
+</mat-toolbar>
+<div class="container">
+  <div class="card mt-3">
+    <div class="card-body">
+      <p-accordion>
+        <p-accordionTab header="Portfolio List" [selected]="true">
+          <div *ngFor="let email of userEmailArray; index as i">
+            <div class="list-group" *ngIf="!res">
+              <li class="list-group-item" style="width: 90%">
+                <b>Email :</b>
+                <a class="email" (click)="showPortfolio(email)">
+                  {{ email }}
+                </a>
+              </li>
+              <button class="button" (click)="showPortfolio(email)">
+                <i class="fa fa-edit"></i>
+              </button>
+              <button class="button" (click)="deletePortfolio(email, i)">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </div>
+          </div>
+        </p-accordionTab>
+      </p-accordion>
+    </div>
+  </div>
+</div>
+<p-dialog
+  header="Message"
+  [(visible)]="showDeleteMessage"
+  [style]="{ width: '50%' }"
+>
+  {{ message }}
+</p-dialog>

@@ -1,0 +1,26 @@
+<h2 class="heading">Education</h2>
+<div *ngIf="res.data">
+  <div *ngFor="let education of res.data.Education; let i = index">
+    <div class="d-flex">
+      <span
+        ><em class="fa fa-graduation-cap" style="color: rgb(119, 132, 146)"></em
+      ></span>
+      <p class="skill-name ml-1" style="font-weight: 700; color: #778492">
+        {{ education.degree }}
+      </p>
+    </div>
+    <div class="item">
+      <p class="university">
+        {{ education.college }}
+        <span class="year"
+          >({{ education.startDate | date : "YYYY" }}
+          {{ education.endDate ? "-" : "" }}
+          {{ education.endDate | date : "YYYY" }})</span
+        >
+      </p>
+    </div>
+  </div>
+</div>
+<!-- <span class="edit-content" (click)="showDialog()"
+  ><i class="fa fa-edit"></i
+></span> -->
