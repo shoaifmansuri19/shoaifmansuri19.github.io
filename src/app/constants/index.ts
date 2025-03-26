@@ -53,9 +53,9 @@ export class AppConstants {
         {
           id: 13,
           designation: 'Software Engineer',
-          company: 'Impero IT Services Pvt. Ltd.',
-          joiningDate: '2023-12-24T18:30:00.000Z',
-          endDate: '2024-03-26T18:30:00.000Z',
+          company: 'Notion Infosoft Pvt. Ltd.',
+          joiningDate: '2023-12-22T18:30:00.000Z',
+          endDate: '2024-12-30T18:30:00.000Z',
           description:
             'In this company, My role was to develop end-to-end solutions for client requirements using ReactJS, Fastify, AWS & PostgreSQL. I was also taking call with the client for requirements twice in a week.',
           createdAt: '2024-04-06T08:35:44.000Z',
